@@ -33,7 +33,7 @@
     $.ajax({
       url: url,
       type: method,
-      dataType: 'json',
+      dataType: 'html',
       data: data,
       cache: cache,
       processData: processData,

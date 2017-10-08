@@ -17,40 +17,40 @@
 
   Handlers.prototype.redirect = function(e, $el, data) {
     /* istanbul ignore next */ // Not testable; at least I haven't been able to figure it out
-    if (data.location) {
-      window.location.href = data.location;
+    if (data) {
+      window.location.href = data;
       return false;
     }
   };
   Handlers.prototype.replace = function(e, $el, data) {
-    $($el.data('replace')).replaceWith(data.html);
+    $($el.data('replace')).replaceWith(data);
   };
   Handlers.prototype.replaceClosest = function(e, $el, data) {
-    $el.closest($el.data('replace-closest')).replaceWith(data.html);
+    $el.closest($el.data('replace-closest')).replaceWith(data);
   };
   Handlers.prototype.replaceInner = function(e, $el, data) {
-    $($el.data('replace-inner')).html(data.html);
+    $($el.data('replace-inner')).html(data);
   };
   Handlers.prototype.replaceClosestInner = function(e, $el, data) {
-    $el.closest($el.data('replace-closest-inner')).html(data.html);
+    $el.closest($el.data('replace-closest-inner')).html(data);
   };
   Handlers.prototype.append = function(e, $el, data) {
-    $($el.data('append')).append(data.html);
+    $($el.data('append')).append(data);
   };
   Handlers.prototype.prepend = function(e, $el, data) {
-    $($el.data('prepend')).prepend(data.html);
+    $($el.data('prepend')).prepend(data);
   };
   Handlers.prototype.refresh = function(e, $el) {
     $.each($($el.data('refresh')), function(index, value) {
       $.getJSON($(value).data('refresh-url'), function(data) {
-        $(value).replaceWith(data.html);
+        $(value).replaceWith(data);
       });
     });
   };
   Handlers.prototype.refreshClosest = function(e, $el) {
     $.each($($el.data('refresh-closest')), function(index, value) {
       $.getJSON($(value).data('refresh-url'), function(data) {
-        $el.closest($(value)).replaceWith(data.html);
+        $el.closest($(value)).replaceWith(data);
       });
     });
   };
